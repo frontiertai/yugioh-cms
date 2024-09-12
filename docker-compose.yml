@@ -1,0 +1,44 @@
+version: '3'
+services:
+  nginx:
+    container_name: "cms-nginx"
+    build:
+      context: ./docker/nginx
+    depends_on:
+      - app
+    ports:
+      - 80:80
+    volumes:
+      - ./:/src
+
+  app:
+    container_name: "cms-app"
+    build:
+      context: ./docker/php
+    depends_on:
+      - mysql
+    ports:
+      - 5173:5173
+    volumes:
+      - ./:/src
+      - /src/node_modules
+      - /src/vendor
+      - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+
+  mysql:
+    image: mysql:8.0.37
+    command: --max_allowed_packet=32505856
+    container_name: "cms-mysql"
+    volumes:
+      - ./docker/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=cms
+    ports:
+      - 3306:3306
+
+  redis:
+    image: redis:alpine
+    container_name: "cms-redis"
+    ports:
+      - 16379:6379
