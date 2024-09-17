@@ -5,8 +5,8 @@ import {createRoot, hydrateRoot} from 'react-dom/client'
 
 createInertiaApp({
   resolve: name => {
-    const pages = import.meta.glob('./Pages/**/*.tsx', { eager: true })
-    return pages[`./Pages/${name}.tsx`]
+    const pages = import.meta.glob('./pages/**/*.tsx', { eager: true })
+    return pages[`./pages/${name}.tsx`]
   },
   setup({ el, App, props }) {
     if (import.meta.env.VITE_APP_ENV === "production") {
