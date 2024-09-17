@@ -4,20 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\Sample;
 
 class SampleController extends Controller
 {
     //
     public function index()
     {
-        $data = [
-            ['id' => 1, 'name' => 'John Doe'],
-            ['id' => 2, 'name' => 'Jane Doe'],
-            ['id' => 3, 'name' => 'John Smith'],
-            ['id' => 4, 'name' => 'Jane Smith'],
-        ];
+        $sampleData = Sample::all();
         return Inertia::render('sample/SampleIndex', [
-            'list' => $data,
+            'list' => $sampleData,
         ]);
     }
 
@@ -36,7 +32,7 @@ class SampleController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        dd($data);
+        Sample::create($data);
         return redirect('/sample');
     }
 
