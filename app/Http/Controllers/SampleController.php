@@ -38,14 +38,17 @@ class SampleController extends Controller
 
     public function edit($id)
     {
+        $data = Sample::find($id);
         return Inertia::render('sample/SampleEdit', [
             'id' => $id,
+            'name' => $data->name,
         ]);
     }
 
     public function update(Request $request, $id)
     {
-        $data = $request->all();
+        $data = Sample::find($id);
+        $data->update($request->all());
         return redirect('/sample');
     }
 }
