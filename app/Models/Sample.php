@@ -11,5 +11,6 @@ class Sample extends Model
 
     protected $fillable = [
         'name',
+        'img_path'
     ];
 }

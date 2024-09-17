@@ -1,5 +1,6 @@
 import React from "react";
 import "../../../css/app.css";
+import ImgAsset from "../../components/ImgAsset";
 
 type Prop = {
     list: User[];
@@ -8,6 +9,7 @@ type Prop = {
 export type User = {
     id: number;
     name: string;
+    img_path: string;
 };
 
 const SampleIndex = (props: Prop) => {
@@ -31,6 +33,7 @@ const SampleIndex = (props: Prop) => {
                         <tr key={user.id} onClick={() => toDetail(user.id)}>
                             <td>{user.id}</td>
                             <td>{user.name}</td>
+                            <td><ImgAsset src={user.img_path} /></td>
                         </tr>
                     ))}
                 </tbody>

@@ -2,6 +2,9 @@
 `mkdir ./docker/nginx/logs`  
 `mkdir ./docker/mysql`  
 
+# シンボリックリンク
+`php artisan storage:link`  
+
 # マイグレーション
 appコンテナ内で実行  
 `php artisan migrate`  
