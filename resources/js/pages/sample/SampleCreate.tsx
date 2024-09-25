@@ -1,7 +1,9 @@
 import React, { useRef } from "react";
 import "../../../css/app.css";
+import { usePage } from "@inertiajs/react";
 
 const SampleCreate = () => {
+    const { errors } = usePage().props;
     // CSRFトークンを取得
     const metaCsrfToken = document.querySelector(
         "meta[name='csrf-token']"
@@ -15,12 +17,17 @@ const SampleCreate = () => {
                 <div>
                     <label htmlFor="name">Name</label>
                     <input type="text" name="name" />
+                    {errors['name'] && <p className="error-message">{errors['name']}</p>}
                 </div>
                 <div>
                     <input type="file" name="img_path" />
+                    {errors['img_path'] && <p className="error-message">{errors['img_path']}</p>}
                 </div>
                 <button type="submit">Submit</button>
             </form>
+            <div>
+                <a href={route('sample')}>一覧に戻る</a>
+            </div>
         </div>
     );
 };

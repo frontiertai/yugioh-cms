@@ -17,7 +17,7 @@ const SampleDetail = (props: Prop) => {
                 <ImgAsset src={props.img_path} />
             </div>
             <div>
-                <a href="/sample">一覧に戻る</a>
+                <a href={route('sample')}>一覧に戻る</a>
             </div>
             <div>
                 <a href={`/sample/edit/${props.id}`}>編集</a>

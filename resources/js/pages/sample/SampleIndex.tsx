@@ -15,12 +15,14 @@ export type User = {
 const SampleIndex = (props: Prop) => {
     const toDetail = (id: number) => {
         console.log(id);
-        location.href = `/sample/detail/${id}`;
+        // location.href = `/sample/detail/${id}`;
+        location.href = route('sample.detail', { id: id });
     };
+    console.log(props);
 
     return (
         <div>
-            <a href="/sample/create">新規追加</a>
+            <a href={route('sample.create')}>新規追加</a>
             <table>
                 <thead>
                     <tr>

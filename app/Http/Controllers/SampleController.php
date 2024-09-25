@@ -35,6 +35,16 @@ class SampleController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'img_path' => 'required|image',
+        ],
+        [
+            'name.required' => '名前は必須です。',
+            'img_path.required' => '画像は必須です。',
+            'img_path.image' => '画像ファイルを指定してください。',
+        ]);
+
         $data = $request->all();
 
         $path = $request->file('img_path')->store('images', 'public');
@@ -55,6 +65,14 @@ class SampleController extends Controller
     
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'img_path' => 'image',
+        ],
+        [
+            'name.required' => '名前は必須です。',
+            'img_path.image' => '画像ファイルを指定してください。',
+        ]);
         $updateEntiry = Sample::find($id);
 
         // 画像更新がある場合は削除して新しい画像を保存
