@@ -5,8 +5,23 @@
 # シンボリックリンク
 `php artisan storage:link`  
 
+# .env作成
+`cp .env.example .env`
+
+# パッケージインストール
+* appコンテナに入る
+`docker compose exec app bash`
+`composer install`
+`npm install`
+
 # マイグレーション
-appコンテナ内で実行  
+* appコンテナに入る  
+`docker compose exec app bash`  
 `php artisan migrate`  
 ロールバック  
 `php artisan migrate:rollback`  
+
+# viteサーバー起動
+* appコンテナに入る  
+`docker compose exec app bash`  
+`npm run dev`
