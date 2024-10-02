@@ -33,4 +33,12 @@ WORKDIR /src
 ADD . /src/storage
 RUN chown -R www-data:www-data /src/storage
 
+ARG USERNAME=user
+ARG GROUPNAME=user
+ARG UID=1000
+ARG GID=1000
+RUN groupadd -g $GID $GROUPNAME && \
+    useradd -m -u $UID -g $GID $USERNAME
+USER $USERNAME
+
 # ENTRYPOINT [ "bash", "-c", "npm install; composer install;" ]
