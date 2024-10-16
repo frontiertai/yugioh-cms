@@ -67,7 +67,7 @@ class SampleController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'img_path' => 'image',
+            'img_path' => 'nullable|image',
         ],
         [
             'name.required' => '名前は必須です。',
