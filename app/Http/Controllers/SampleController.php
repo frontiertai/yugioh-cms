@@ -35,6 +35,8 @@ class SampleController extends Controller
 
     public function store(Request $request)
     {
+
+        //上で条件、下でエラーメッセージの表示
         $request->validate([
             'name' => 'required',
             'img_path' => 'required|image',
