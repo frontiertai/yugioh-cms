@@ -21,7 +21,7 @@ const SampleCreate = () => {
     });
 
     const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
+        e.preventDefault();//ここがわからん
         post(route("sample.store", { formForceData: true }));
     };
 

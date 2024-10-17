@@ -17,11 +17,13 @@ Route::get('/welcome', function () {
 });
 
 
-Route::get('/home',[CardsController::class,'index']);
+Route::get('/home',[CardsController::class,'index'])->name('home');
 Route::get('/home/create',[CardsController::class,'monsterCreate'])->name('monster.create');
-Route::post('/home/store',[CardsController::class,'store']);
-Route::post('/home/store/magic',[CardsController::class,'magicStore']);
-Route::post('/home/store/trap',[CardsController::class,'trapStore']);
+Route::post('/home/store',[CardsController::class,'store'])->name('monster.store');
+Route::post('/home/store/magic',[CardsController::class,'magicStore'])->name('magic.store');
+Route::post('/home/store/trap',[CardsController::class,'trapStore'])->name('trap.store');
+Route::get('/home/detail/{id}/{type}',[CardsController::class,'detail']);
+Route::get('/home/edit/{id}/{type}',[CardsController::class,'edit']);
 
 
 

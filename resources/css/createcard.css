@@ -1,0 +1,63 @@
+.create_page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:3rem;
+    transform: translateY(3rem);
+
+
+}
+
+
+.text{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(1.5rem);
+    font-size:2rem ;
+}
+
+.radio {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(213, 230, 230);
+    gap: 1rem;
+    background: #0e0eea;
+    padding: 1rem;
+    width: 18rem; 
+    height: 8rem; 
+    border-radius: 0.5rem; /* 8px */
+    z-index: 40;
+}
+
+
+
+.form {
+    
+    display: flex;
+    flex-direction: column;
+    
+    gap: 3rem;
+    border: thick double #3532ce;
+    background:white;
+    padding: 1rem;
+}
+
+
+.button {
+    background: #0e0eea;
+    border: none; 
+    border-radius: 0.25rem;
+    color: rgb(213, 230, 230);
+    padding: 0.5rem 1.5rem;
+    cursor: pointer; 
+}
+
+
+
