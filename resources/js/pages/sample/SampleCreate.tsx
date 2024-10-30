@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import "../../../css/app.css";
 import { useForm, usePage } from "@inertiajs/react";
+import { route } from "ziggy-js";
 
 export type Inputs = {
     name: string;

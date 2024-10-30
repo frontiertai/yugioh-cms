@@ -1,16 +1,32 @@
 import { useForm } from "@inertiajs/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 
 type TypeProps={
     TypehandleChange: (type: number) => void;
+    selectedType:number|undefined;
 }
 
 
-const MagicType=({TypehandleChange}:TypeProps)=>{
 
-   const [type,setType]=useState<number>(0);
+const MagicType=({TypehandleChange,selectedType}:TypeProps)=>{
+
+   const [type,setType]=useState<number|undefined>(undefined);
+ 
+
+
+   useEffect(()=>{
+
+    if (selectedType!=null){
+    
+        setType(selectedType)
+        };
+    
+
+   },[])
+    
+    
 
     
 
@@ -31,12 +47,12 @@ const MagicType=({TypehandleChange}:TypeProps)=>{
             <label >魔法カードのタイプを選択してください</label>
             <select  value={type} onChange={handleChange}>
                 <option value={undefined}>選択してください</option>
-                <option value={1}>通常魔法</option>
-                <option value={2}>儀式魔法</option>
-                <option value={3}>永続魔法</option>
-                <option value={4}>装備魔法</option>
-                <option value={5}>フィールド魔法</option>
-                <option value={6}>速攻魔法</option>
+                <option value={0}>通常魔法</option>
+                <option value={1}>儀式魔法</option>
+                <option value={2}>永続魔法</option>
+                <option value={3}>装備魔法</option>
+                <option value={4}>フィールド魔法</option>
+                <option value={5}>速攻魔法</option>
             </select>
         </div>
     )

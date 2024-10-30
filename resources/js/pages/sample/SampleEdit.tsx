@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import "../../../css/app.css";
 import { User } from "./SampleIndex";
 import { useForm, usePage } from "@inertiajs/react";
+import { route } from "ziggy-js";
 
 type DetailData = {
     id: number;

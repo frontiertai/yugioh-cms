@@ -1,7 +1,8 @@
 import * as React from 'react';
 import './bootstrap';
 import { createInertiaApp } from '@inertiajs/react'
-import {createRoot, hydrateRoot} from 'react-dom/client'
+import {createRoot, hydrateRoot} from 'react-dom/client';
+import './index.css';
 
 createInertiaApp({
   resolve: name => {

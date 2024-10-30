@@ -2,6 +2,7 @@ import React from "react";
 import "../../../css/app.css";
 import ImgAsset from "../../components/ImgAsset";
 import { User } from "./SampleIndex";
+import { route } from "ziggy-js";
 
 const SampleDetail = (props: User) => {
     return (

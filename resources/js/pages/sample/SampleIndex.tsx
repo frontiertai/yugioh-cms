@@ -1,6 +1,7 @@
 import React from "react";
 import "../../../css/app.css";
 import ImgAsset from "../../components/ImgAsset";
+import { route } from "ziggy-js";
 
 type Prop = {
     list: User[];

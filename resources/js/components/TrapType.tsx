@@ -1,18 +1,32 @@
 import { useForm } from "@inertiajs/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 
 type TypeProps={
     TypehandleChange: (type: number) => void;
+    selectedType:number|undefined;
 }
 
 
-const TrapType=({TypehandleChange}:TypeProps)=>{
-
-   const [type,setType]=useState<number>(0);
+const TrapType=({TypehandleChange,selectedType}:TypeProps)=>{
 
     
+
+   const [type,setType]=useState<number|undefined>(undefined);
+
+   
+   
+
+    useEffect(()=>{
+
+        if (selectedType!=undefined){
+
+            setType(selectedType)
+            };
+
+    },[])
+   
 
     const handleChange=(e:React.ChangeEvent<HTMLSelectElement>)=>{
 
@@ -31,9 +45,9 @@ const TrapType=({TypehandleChange}:TypeProps)=>{
             <label >トラップカードのタイプを選択してください</label>
             <select  value={type} onChange={handleChange}>
                 <option value={undefined}>選択してください</option>
-                <option value={1}>通常罠カード</option>
-                <option value={2}>永続罠カード</option>
-                <option value={3}>カウンター罠カード</option>
+                <option value={0}>通常罠カード</option>
+                <option value={1}>永続罠カード</option>
+                <option value={2}>カウンター罠カード</option>
             </select>
         </div>
     )
