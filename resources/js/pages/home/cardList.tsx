@@ -210,10 +210,15 @@ const cardList=(props:Props)=>{
                         <th>詳細</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {Magic.map((magic)=>(
-                        <tr key={magic.id}  >
-                            <td>{magic.name}</td>
+                            <tbody className="flex flex-col items-center space-y-20">
+                                {Magic.map((magic) => (
+                                    <div className="flex items-center  border border-blue-900 rounded-md py-2 px-10">
+                                        <div className="w-1/3">
+                                            <ImgAsset src={magic.img_path} />
+                                        </div>
+                                        <tr key={magic.id} className=" w-2/3 grid grid-cols-3 gap-x-20 gap-y-10 text-xl  "  >
+                                            <div className="flex flex-col space-y-4 justify-center items-center" >
+                                                <td>{magic.name}</td>
                             <td>{magic.magic_type_id}</td>
                         
                             <td>{magic.effectText}</td>
