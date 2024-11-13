@@ -7,6 +7,7 @@ import MonsterAttribute from "../../components/MonsterAttribute";
 import MagicType from "../../components/MagicType";
 import TrapType from "../../components/TrapType";
 import { route } from "ziggy-js";
+import Header from "../../components/header/header";
 
 
 export type Monster={
@@ -167,7 +168,9 @@ const createCard=()=>{
         
     <div className="flex flex-col space-y-20">
 
-        <div className="flex h-24 bg-black text-white text-2xl justify-around px-4">
+        <Header Labels={["カード一覧に戻る"]}/>
+
+        {/*<div className="flex h-24 bg-black text-white text-2xl justify-around px-4">
             <div className="flex items-center ">
                 <div>カード管理システム</div>
 
@@ -178,7 +181,7 @@ const createCard=()=>{
                     カード一覧に戻る
                 </a>
             </div>
-        </div>
+        </div>*/}
         
         
         <div className="flex flex-col items-center justify-center space-y-20">

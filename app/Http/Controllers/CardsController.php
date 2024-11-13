@@ -31,6 +31,8 @@ class CardsController extends Controller
         $magicType = MagicType::all();
         $trapType = TrapType::all();
 
+
+
         
 
 
@@ -97,9 +99,35 @@ class CardsController extends Controller
         };
 
         $page=floor($elemnt/10)+1;
-       
 
-        //dd($allCardData);
+
+
+        //$a=MonsterType::get("id");
+
+        //dd($a);
+
+        // foreach($monsterData as $data){
+        //     $type_id=$data['monster_type_id'];
+
+        //     //どのDBの書き換えを行うかを指定するため
+        //     $id=$data['id'];
+
+        //     //dd($type_id);
+
+        //     $type=MonsterType::where("id",$type_id)->get('value');
+
+        //     //dd($type);//ここに文字列のタイプを保存
+
+        //     MonsterCard::where('id',$id)->update(["monster_type_id"=>$type]);
+
+        //     $a=MonsterCard::get();
+        //     dd($a);
+
+        
+
+
+
+        // }
      
 
 
@@ -372,6 +400,7 @@ class CardsController extends Controller
             'effectText.max' => '255文字以内にしてください。',
         ]);
 
+        //なぜ変数の更新がデーターベースの更新にも繋がるのか
         $updateEntiry = magicCard::find($id);
 
         $image = $request->file('img_path');

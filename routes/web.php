@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JsonController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Events\BattleEvent;
@@ -7,7 +8,7 @@ use App\Http\Controllers\SampleController;
 use App\Http\Controllers\CardsController;
 
 
-Route::get('/', function () {
+Route::get('/getCards', function () {
     BattleEvent::dispatch();
     return view('welcome');
 });
@@ -34,6 +35,7 @@ Route::post('/home/update/{id}',[CardsController::class,'update'])->name('monste
 Route::post('/home/update/magic/{id}',[CardsController::class,'magicUpdate'])->name('magic.update');
 Route::post('/home/update/trap/{id}',[CardsController::class,'trapUpdate'])->name('trap.update');
 Route::post('/home/delete',[CardsController::class,'Delete'])->name('Delete');
+Route::get('/home/test',[JsonController::class,'toJson'])->name('test');
 
 //Route::post('/home/search/1',[CardsController::class,'monsterSearch'])->name('monster.search');//
 //Route::post('/home/serach/2',[CardsController::class,'magicSearch'])->name('magic.search');
